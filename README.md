@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/76cf2167-61e7-4f20-85b0-9fc3d84d94a4)# AceTrainer v2
+# AceTrainer v2
 
 In AceTrainer v2, the concept will be fleshed out and new gameplay mechanics will be added to the main page, as well as an additional page handling persistent data: the Leaderboard. 
 
