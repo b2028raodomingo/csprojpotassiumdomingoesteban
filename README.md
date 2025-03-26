@@ -4,7 +4,7 @@ In AceTrainer v2, the concept will be fleshed out and new gameplay mechanics wil
 
 On the main trainer page, there will be three modes of play: Classic, Arcade, and Zen. In Classic mode, the user wil be given either a certain amount of seconds to click as many circles as they can; either 10, 30, or 60. In Arcade, there will be a timing window that gets tighter and tighter as the player clicks more circles; Play will halt when the user misses the timing window. Zen mode is the endless mode; no timing window, no time limit.
 
-After a user is done playing 1 round of their chosen mode, they will be asked to submit their score in an arcade-like fashion, simply asking for a username. The username and the score attached to it will then be uploaded to a database, where it becomes persistent data for all users to see. The leaderboard may also have a search bar function for easier 
+After a user is done playing 1 round of their chosen mode, they will be asked to submit their score in an arcade-like fashion, simply asking for a username. The username and the score attached to it will then be uploaded to a database, where it becomes persistent data for all users to see. 
 
 ## Persistent data
 
