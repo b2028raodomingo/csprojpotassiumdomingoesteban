@@ -8,16 +8,11 @@ After a user is done playing 1 round of their chosen mode, they will be asked to
 
 ## Persistent data
 
-Type of Data: Leaderboard entry <br> 
+Type of Data: Arcade-style leaderboard <br> 
 Purpose: For tracking scores & the usernames attached to them<br> 
-JSON Structure:<br> 
+Example Array Structure:<br> 
 ```js
-leaderboardEntry {
-   username: text-string,
-   score: number,
-   mode: text-string,
-   timestamp: date
-}
+leaderboard = [["username1",scorenumber1,"date1"],["username2",scorenumber2,"date2"]]
 ```
 
 ## Wireframe
