@@ -15,16 +15,12 @@
       <h4>
         Home
       </h4></a>
-      <a href="lb.html">
-      <h4>
-        
-      </h4>
       </a> 
    <a href="about.html"><h4>
       About the Creators
-    </h4></a></nav>
-    <h1 id="title1">Ace</h1> <h1 id="title2">Trainer
-    </h1>
+    </h4></a>
+ </nav>
+    <h1 id="title1">Ace Trainer</h1> 
     <h2>
       An aim training website for first-person shooting (FPS) games 
     </h2>
@@ -32,37 +28,15 @@
       Welcome to Ace Trainer, a website created so that hardcore gamers <br> can practice and sharpen their shooting skills in first-person shooter games.
       <br>
       <br>
-      To start, click the "Start Training" button to spawn a target.
+      To start, click your preferred gamemode. Check the FAQ page to learn about them.
     </h3>
-    <button onclick="simulateAT()">Start Training</button>
-    <button onclick="clearboard()">
-      Clear Board
-    </button>
+     <button onclick="startMode('classic')">Classic</button>
+  <button onclick="startMode('arcade')">Arcade</button>
+  <button onclick="startMode('zen')">Zen</button>
+    <button onclick="clearboard()">Reset</button>
+    <p>Time Left: <span id="timerDisplay">0</span> seconds</p>
     <br>
     <canvas id="targetboard" width="800" height="600" onclick="simulateAT()"></canvas>
-    <script>
-    const canvas=document.getElementById("targetboard");
-const ctx=canvas.getContext("2d");
-ctx.canvas.style.backgroundColor="#CF291D";
-ctx.canvas.style.border="2px solid white";
-
-function drawTarget(x,y) {
-  ctx.beginPath();
-  ctx.arc(x,y,40,0,2*Math.PI);
-  ctx.fillStyle="#ECECEC";
-  ctx.fill();
-  ctx.closePath();
-}
-
-function simulateAT(){
-  clearboard();
-  let x=Math.random()*760+40,y=Math.random()*560+40;
-  drawTarget(x,y);
-}
-
-function clearboard(){
-  ctx.clearRect(0,0,800,600);
-}
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
