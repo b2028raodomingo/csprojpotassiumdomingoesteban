@@ -1,6 +1,6 @@
 
 var hitAudio = new Audio('targethit.mp3')
-var missAudio = new Audio('targetmiss.mp3')
+
 // main script for spawning targets, c/o caleb
 const canvas=document.getElementById("targetboard");
 const ctx=canvas.getContext("2d");
@@ -21,22 +21,37 @@ function simulateAT(){
   drawTarget(x,y);
 
   canvas.onclick = (event) => { //canvas onclick event listener
-    const rect = canvas.getBoundingClientRect(); 
+   handleHit(event, x, y, simulateAT);
+    }
+    
+  };
+ 
+   function resetTimer() {
+
+    timeLeft = 2; //REALLY IMPORTANT VALUE!!! DETERMINES HOW HARD THE GAMEMODE IS 
+     clearInterval(timer); // resets timer
+    document.getElementById("timerDisplay").textContent = timeLeft.toFixed(1); 
+    arcadeMode();
+  }
+
+function handleHit(event, x, y, simulateAT)
+{
+     const rect = canvas.getBoundingClientRect(); 
     const clickX = event.clientX - rect.left; 
-    const clickY = event.clientY - rect.top;  
+    const clickY = event.clientY - rect.top;  //finds coords of click in the canvas
 
     // check if click is within target radius
     const radius = Math.sqrt((clickX - x) ** 2 + (clickY - y) ** 2);
     if (radius <= 40) { 
+      
       score++; // increment the score
       console.log(`Score: ${score}`); // debug logging
       hitAudio.play();
       simulateAT(); 
+     if (mode == 'arcade') {resetTimer()}
+      
     }
-    else {simulateAT(); }
-  };
 }
-
 function clearboard(){
   ctx.clearRect(0,0,800,600);
 }
@@ -52,6 +67,8 @@ function startMode(selectedMode) {
   score = 0;
   clearboard();
 
+  document.getElementById("stopButton").style.display = "block";
+
    if (mode == 'classic') {
 
     do { // do-while loop checks if inputted duration is one of the accepted ones
@@ -61,32 +78,65 @@ function startMode(selectedMode) {
     duration = parseInt(duration);
   } while (duration != 10 && duration != 30 && duration != 60);
 
-
-    startClassicMode(parseInt(duration));
+    classicMode(parseInt(duration));
 
   } else if (mode == 'arcade') {
-    startArcadeMode()
-  } else if (mode == 'zen') {
-    startZenMode()
+   
+    arcadeMode()}
+    else if (mode == 'zen') {
+    zenMode()
   }
-  simulateAT();
+
 }
 
-function startClassicMode(duration) {
+function classicMode(duration) {
+  simulateAT();
   let timeLeft = duration;
   document.getElementById("timerDisplay").textContent = timeLeft; //set onscreen timer
 
-  timer = setInterval(() => { // arrow function here decreases timeLeft by 1 every 1000 ms done using setInterval
-    timeLeft = timeLeft - 1;
+  timer = setInterval(() => { // arrow function here decreases timeLeft by 0.1 every 100 ms done using setInterval
+    timeLeft = timeLeft - 0.1;
+    timeLeft = timeLeft.toFixed(1);
     document.getElementById("timerDisplay").textContent = timeLeft; //update onscreen timer
 
     if (timeLeft <= 0) {
       clearInterval(timer);
       endGame();
     }
-  }, 1000); 
+  }, 100); 
    
 }
+function arcadeMode() {
+  simulateAT();
+  let timeLeft = 2;
+  document.getElementById("timerDisplay").textContent = timeLeft; //set onscreen timer
+
+  timer = setInterval(() => { // same as classicMode
+    timeLeft = timeLeft - 0.1;
+    timeLeft = timeLeft.toFixed(1);
+    document.getElementById("timerDisplay").textContent = timeLeft; //update onscreen timer
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      endGame();
+    }
+
+  }, 100);
+  handleHit(event, x, y, simulateAT)
+  
+}
+
+
+  
+  
+ function zenMode(){
+ score = 0;
+   classicMode(Infinity)
+   document.getElementById("timerDisplay").textContent = "Infinity"; //set onscreen timer
+
+ }
+  
+
 
 function endGame() {
   alert(`Game Over! Your score: ${score}`);
@@ -94,7 +144,6 @@ function endGame() {
   saveScore(username, score);
   clearboard();
 }
-
 function saveScore(username, score) {
   console.log(`Score saved: ${username} - ${score}`);
   // Add logic to save the score to a leaderboard or database

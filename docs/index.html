@@ -33,10 +33,10 @@
      <button onclick="startMode('classic')">Classic</button>
   <button onclick="startMode('arcade')">Arcade</button>
   <button onclick="startMode('zen')">Zen</button>
-    <button onclick="clearboard()">Reset</button>
-    <p>Time Left: <span id="timerDisplay">0</span> seconds</p>
+    <p>Time Left: <span id="timerDisplay">0</span></p>
     <br>
-    <canvas id="targetboard" width="800" height="600" onclick="simulateAT()"></canvas>
+    <canvas id="targetboard" width="800" height="600"></canvas>
+  <button id="stopButton" style="display: none;">Stop</button>
     <script src="script.js"></script>
   </body>
 </html>
