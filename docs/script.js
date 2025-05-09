@@ -146,5 +146,31 @@ function endGame() {
 }
 function saveScore(username, score) {
   console.log(`Score saved: ${username} - ${score}`);
-  // Add logic to save the score to a leaderboard or database
+
+  if (username) { // how they gon get an entry if they have no username? this checks for that
+    // dynamic form wahoooooo
+    const form = document.createElement('form');
+    form.method = 'POST'; 
+    form.action = ''; // put... something here
+
+    // hidden username input
+    const usernameInput = document.createElement('input');
+    usernameInput.type = 'hidden';
+    usernameInput.name = 'username';
+    usernameInput.value = username;
+
+    // hidden score input
+    const scoreInput = document.createElement('input');
+    scoreInput.type = 'hidden';
+    scoreInput.name = 'score';
+    scoreInput.value = score;
+
+    // put inputs in da form
+    form.appendChild(usernameInput);
+    form.appendChild(scoreInput);
+
+    // put the form in the body and then submit
+    document.body.appendChild(form);
+    form.submit();
+  }
 }

@@ -10,16 +10,20 @@ const path = require('path');
 // Step 4: Creates our express server
 const app = express();
 
-//Serves static files inside the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+//Serves static files inside the docs folder
+app.use(express.static(path.join(__dirname, 'docs')));
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Sets a basic route index.hbs when website initially starts and when home is clicked from the nav bar or whenever a process needs to go back to home 
-app.get('/', (req, res) => {
-    res.render('index.hbs');
+//root route
+app.get('/', (req, res) => {    
+    res.sendFile(path.join(__dirname, 'docs','index.html'));
 })
 
+//more or less redundant
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'docs', 'about.html'));
+});
 
 // Step 5: Start HTTP Server on a port number 3000
 // This will create a web service for your own project
