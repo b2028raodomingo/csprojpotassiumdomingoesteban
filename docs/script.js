@@ -145,13 +145,11 @@ function endGame() {
   clearboard();
 }
 function saveScore(username, score) {
-  console.log(`Score saved: ${username} - ${score}`);
-
   if (username) { // how they gon get an entry if they have no username? this checks for that
-    // dynamic form wahoooooo
+    // dynamically created form wahoooooo
     const form = document.createElement('form');
     form.method = 'POST'; 
-    form.action = ''; // put... something here
+    form.action = '/score-submit'; // put... something here
 
     // hidden username input
     const usernameInput = document.createElement('input');
@@ -172,5 +170,7 @@ function saveScore(username, score) {
     // put the form in the body and then submit
     document.body.appendChild(form);
     form.submit();
+
+    console.log(`Score saved: ${username} - ${score}`);
   }
 }

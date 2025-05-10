@@ -11,13 +11,16 @@
 
   <body>
     <nav>
-      <a href="index.html">
+      <a href="/">
       <h4>
         Home
       </h4></a>
       </a> 
-   <a href="about.html"><h4>
+   <a href="/about"><h4>
       About the Creators
+    </h4></a>
+    <a href="/leaderboard"><h4>
+      Leaderboard
     </h4></a>
  </nav>
     <h1 id="title1">Ace Trainer</h1> 
@@ -36,7 +39,7 @@
     <p>Time Left: <span id="timerDisplay">0</span></p>
     <br>
     <canvas id="targetboard" width="800" height="600"></canvas>
-  <button id="stopButton" style="display: none;">Stop</button>
+  <h3><button id="stopButton" onclick="endGame()" style="display: none;">Stop</button></h3>
     <script src="script.js"></script>
     <footer>
   &copy; 2025 raodomingo, clsesteban <br>
