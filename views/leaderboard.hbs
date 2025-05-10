@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leaderboard</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">
+      <h4>
+        Home
+      </h4></a>
+      </a> 
+   <a href="/about"><h4>
+      About the Creators
+    </h4></a>
+    <a href="/leaderboard"><h4>
+      Leaderboard
+    </h4></a>
+ </nav>
+    <h1>Leaderboard</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Username</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each scores}}
+        <tr>
+          <td>{{increment @index}}</td>
+          <td>{{this.username}}</td>
+          <td>{{this.score}}</td>
+          <td>{{this.date}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+     <footer>
+  &copy; 2025 raodomingo, clsesteban <br>
+  Follow us on:
+        <a href="https://twitter.com" target="_blank">Twitter</a> |
+        <a href="https://facebook.com" target="_blank">Facebook</a> |
+        <a href="https://instagram.com" target="_blank">Instagram</a>  <br>
+      
+      Debugging and CSS styling assistance by Copilot
+</footer>
+  </body>
+</html>
