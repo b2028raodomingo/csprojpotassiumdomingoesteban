@@ -146,5 +146,21 @@ function endGame() {
 }
 function saveScore(username, score) {
   console.log(`Score saved: ${username} - ${score}`);
-  // Add logic to save the score to a leaderboard or database
+  updateLeaderboard(username, score); // Save the score to the leaderboard
+}
+
+// The following lines of code below are all for the purpose of managing the leaderboard.
+
+if (!localStorage.getItem('leaderboard')) {
+  localStorage.setItem('leaderboard', JSON.stringify([]));
+}
+
+function updateLeaderboard(username, score) {
+   const lb = JSON.parse(localStorage.getItem('leaderboard'));
+   lb.push([username, score, new Date().toISOString()])
+
+   lb.sort((a,b) => b[1]-a[1]);
+   if (lb.length > 10) lb.length = 10;
+   
+   localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
 }
