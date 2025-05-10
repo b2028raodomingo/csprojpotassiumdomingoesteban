@@ -227,9 +227,96 @@ button {
   cursor: pointer;
 }
 nav {
+  background-color: #333;
+  padding: 10px 0;
   display: flex;
-  gap: 12px;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
   text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #CA9999; /* Matches your h3 color */
+}
+
+/* Leaderboard table styling */
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 800px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #B60718;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+td:first-child {
+  font-weight: bold;
+  color: #555;
+}
+
+/* Leaderboard title styling */
+h1 {
+  margin-top: 20px;
+  font-size: 36px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive design for leaderboard */
+@media (max-width: 600px) {
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+footer a {
+  color: #CA9999; 
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 
