@@ -25,6 +25,7 @@ In raphas-branch, it is an iteration of the website that uses MongoDB Atlas and 
   "username": "usernameHere", // username, obviously
   "score": 30, // score when endGame() in script.js is executed
   "date": "2009-11-21T04:00:00.000+00:00" // taken using Date.now
+  "__v": 0 // counts how many times the entry has been modified; part of Mongoose
 }
 ```
 
