@@ -31,7 +31,7 @@ In raphas-branch, it is an iteration of the website that uses MongoDB Atlas and 
 
 ## AceTrainer v2 - calebs-branch
 
-In calebs-branch, it is an implementation of the website that uses the localStorage property to save and display scores.
+In calebs-branch, it is an implementation of the website that uses the localStorage property to save and display scores. It precissely uses the Example Array Structure outlined in the Persistent Data section.
 
 ## Wireframe
 Main page (mode select) <br>
