@@ -15,6 +15,24 @@ Example Array Structure:<br>
 leaderboard = [["username1",scorenumber1,"date1"],["username2",scorenumber2,"date2"]]
 ```
 
+## AceTrainer v2 - raphas-branch
+
+In raphas-branch, it is an iteration of the website that uses MongoDB Atlas and Mongoose to have a leaderboard that is accessible across devices. MongoDB Atlas stores leaderboard entries with BSON (Binary JSON) documents structured like the JSON object below:
+
+```js
+{
+  "_id": ObjectId("U#R0cu8rfeio"), // random identifier string
+  "username": "usernameHere", // username, obviously
+  "score": 30, // score when endGame() in script.js is executed
+  "date": "2009-11-21T04:00:00.000+00:00" // taken using Date.now
+}
+```
+
+
+## AceTrainer v2 - calebs-branch
+
+In calebs-branch, it is an implementation of the website that uses the localStorage property to save and display scores.
+
 ## Wireframe
 Main page (mode select) <br>
 ![Main page wireframe](https://media.discordapp.net/attachments/1145631599329816676/1354452933084708955/modeSelect.png?ex=67e55817&is=67e40697&hm=d71e633442f965bcfb2a61ef916e18b8bb812d10712879ad4a7ab78870af8026&=&format=webp&quality=lossless&width=1423&height=800) <br>
