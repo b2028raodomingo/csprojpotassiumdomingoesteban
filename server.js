@@ -7,7 +7,7 @@ const path = require('path');
 // mongoose for MongoDB database
 const db = require('mongoose');
 // connecton string for MongoDB Mongoose
-const uri = "mongodb+srv://<username>:<password>@acetraining.jlcymsn.mongodb.net/acetrainer?retryWrites=true&w=majority" // replace username and password with that in databasecredentials
+const uri = "" // replace with connection string sent privately to you
 // hbs... well duh
 const hbs = require('hbs');
 
@@ -66,7 +66,7 @@ app.post('/score-submit', async (req, res) => {
 
 });
 
-app.get('/leaderboard', async (req, res) => {
+app.get('/leaderboard', async (req, res) => { // leaderboard get route for nav
     
     try {
         const topScores = await Score.find().sort({ score: -1 });

@@ -6,6 +6,17 @@ On the main trainer page, there will be three modes of play: Classic, Arcade, an
 
 After a user is done playing 1 round of their chosen mode, they will be asked to submit their score in an arcade-like fashion, simply asking for a username. The username and the score attached to it will then be uploaded to a database, where it becomes persistent data for all users to see. 
 
+
+## Setup Instructions (MongoDB Atlas)
+
+Step 1: Clone repository in VSCode <br>
+Step 2: Open server.js and replace empty uri variable with connection string sent to you via e-mail <br>
+Step 3: run the following commands in Git Bash/terminal: <br>
+```js
+npm install
+node server.js
+```
+Step 4: Open https://localhost:3000 on your preferred browser
 ## Persistent data
 
 Type of Data: Arcade-style leaderboard <br> 

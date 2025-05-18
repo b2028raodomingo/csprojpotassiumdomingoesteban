@@ -149,7 +149,7 @@ function saveScore(username, score) {
     // dynamically created form wahoooooo
     const form = document.createElement('form');
     form.method = 'POST'; 
-    form.action = '/score-submit'; // put... something here
+    form.action = '/score-submit'; //calls route to submit (re: server.js)
 
     // hidden username input
     const usernameInput = document.createElement('input');
@@ -171,6 +171,6 @@ function saveScore(username, score) {
     document.body.appendChild(form);
     form.submit();
 
-    console.log(`Score saved: ${username} - ${score}`);
+   
   }
 }
