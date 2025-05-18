@@ -1,3 +1,7 @@
+<<<<<<< HEAD:docs/about.html
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,7 +14,7 @@
   </head>
 
   <body>
-    <nav > <a href="index.html"><h4>
+    <nav > <a href="/"><h4>
       Home
     </h4></a>
     <a href="about.html"><h4>
@@ -56,3 +60,62 @@
 </footer> 
   </body>
 </html>
+=======
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>About Us</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
+  </head>
+
+  <body>
+   <nav>
+      <a href="/">
+      <h4>
+        Home
+      </h4></a>
+      </a> 
+   <a href="/about"><h4>
+      About the Creators
+    </h4></a>
+    <a href="/leaderboard"><h4>
+      Leaderboard
+    </h4></a>
+ </nav>
+  <h1 id="title1">About the</h1> <h1 id="title2">Creators</h1>
+    <p>
+    <h3>
+      AceTrainer is  project by Caleb Lucas Esteban and Raphael Angelo Domingo. <br>
+      After discussing shortly on which website to create, they were inspired <br>
+      by <a href="https://aimtrainer.io" style="text-decoration: none">AimTrainer.io</a> to create their own <br>
+      version of an aim trainer.
+      </h3>
+    </p>
+
+
+  
+    {{#each creators}}
+    <p>
+      <h2>{{this.name}}</h2>
+      <img width="300px" height="300px" src="{{this.image}}" alt="{{this.name}}" />
+      <br />
+      {{this.bio}}
+    </p>
+    {{/each}}
+  
+ <footer>
+  &copy; 2025 raodomingo, clsesteban <br>
+  Linktree: <a href="https://linktr.ee/4ambandph">our band!</a><br>
+      
+      Debugging and CSS styling assistance by Copilot
+</footer>
+  </body>
+</html>
+>>>>>>> 415ad5e (integrated mongoDB mongoose database):views/about.hbs
