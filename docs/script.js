@@ -1,3 +1,5 @@
+/* looking back, this is REALLY "spaghetti code", which basically means it's hard to follow and maintain. */
+
 
 var hitAudio = new Audio('targethit.mp3')
 
@@ -15,6 +17,7 @@ function drawTarget(x,y) {
   ctx.closePath();
 }
 
+// main game logic c/o rapha
 function simulateAT(){
   clearboard();
   let x=Math.random()*760+40,y=Math.random()*560+40;
@@ -26,13 +29,13 @@ function simulateAT(){
     
   };
  
-   function resetTimer() {
+function resetTimer() {
 
-    timeLeft = 2; //REALLY IMPORTANT VALUE!!! DETERMINES HOW HARD THE GAMEMODE IS 
+    timeLeft = 2; // REALLY IMPORTANT VALUE!!! DETERMINES HOW HARD THE GAMEMODE IS 
      clearInterval(timer); // resets timer
     document.getElementById("timerDisplay").textContent = timeLeft.toFixed(1); 
     arcadeMode();
-  }
+}
 
 function handleHit(event, x, y, simulateAT)
 {
@@ -46,7 +49,7 @@ function handleHit(event, x, y, simulateAT)
       
       score++; // increment the score
       console.log(`Score: ${score}`); // debug logging
-      hitAudio.play();
+      hitAudio.play(); // plays hit sound
       simulateAT(); 
      if (mode == 'arcade') {resetTimer()}
       
@@ -122,21 +125,16 @@ function arcadeMode() {
     }
 
   }, 100);
-  handleHit(event, x, y, simulateAT)
+  handleHit(event, x, y, simulateAT) 
   
 }
-
-
   
-  
- function zenMode(){
+function zenMode(){
  score = 0;
    classicMode(Infinity)
    document.getElementById("timerDisplay").textContent = "Infinity"; //set onscreen timer
 
- }
-  
-
+}
 
 function endGame() {
   alert(`Game Over! Your score: ${score}`);
@@ -144,9 +142,11 @@ function endGame() {
   saveScore(username, score);
   clearboard();
 }
+
+
 function saveScore(username, score) {
-  if (username) { // how they gon get an entry if they have no username? this checks for that
-    // dynamically created form wahoooooo
+  if (username) { // if username is not empty, do this
+    // dynamically created form 
     const form = document.createElement('form');
     form.method = 'POST'; 
     form.action = '/score-submit'; //calls route to submit (re: server.js)
